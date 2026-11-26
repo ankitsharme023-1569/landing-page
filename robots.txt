@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://ankitsharme023-1569.github.io/landing-page/sitemap.xml
