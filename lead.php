@@ -9,7 +9,7 @@ declare(strict_types=1);
 header('Content-Type: application/json; charset=utf-8');
 header('Cache-Control: no-store');
 
-$notifyEmail = '';                          // e.g. 'advisory@landsoukk.com'
+$notifyEmail = 'landsouk65@gmail.com';                          // e.g. 'advisory@landsoukk.com'
 $fromEmail   = 'noreply@landsoukk.com';     // must be a mailbox on this domain for mail() to deliver
 
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
