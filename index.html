@@ -537,9 +537,10 @@ var CFG = {
       .then(function(r){ return r.json().then(function(j){ if(!r.ok || !j.ok) throw new Error(j.error||'Failed'); return j }) })
       .then(function(){
         f.reset();
-        show(f,'ok','Thank you, ' + d.name.split(' ')[0] + '. A Landsoukk advisor will contact you shortly with the Westin Residences details.');
-        if (window.fbq) fbq('track','Lead',{content_name:'Westin Residences'});
-        if (window.gtag) gtag('event','generate_lead',{item_name:'Westin Residences'});
+        show(f,'ok','Thank you! Taking you to the confirmation page…');
+        try { sessionStorage.setItem('lk_lead', JSON.stringify({first: d.name.split(' ')[0], config: d.config, t: Date.now()})) } catch(e){}
+        // Lead conversion events fire on the thank-you page
+        location.href = '/westin-residences/thank-you/';
       })
       .catch(function(){
         if (CFG.wa) {
