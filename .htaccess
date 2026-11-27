@@ -1,0 +1,6 @@
+DirectoryIndex index.html
+Options -Indexes
+RedirectMatch 404 /\.git
+<FilesMatch "\.(csv|md)$">
+  Require all denied
+</FilesMatch>
