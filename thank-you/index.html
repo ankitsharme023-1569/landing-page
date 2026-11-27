@@ -2,6 +2,13 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-MVSG9X7Z');</script>
+<!-- End Google Tag Manager -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Thank You | The Westin Residences | Landsoukk Realtors</title>
 <meta name="robots" content="noindex, nofollow">
@@ -68,6 +75,11 @@ src="https://www.facebook.com/tr?id=1459825486336695&ev=PageView&noscript=1"
 <!-- End Meta Pixel Code -->
 </head>
 <body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MVSG9X7Z"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
 <header>
   <div class="nav">
     <a class="brand" href="https://landsoukk.com/"><img src="/images/landsoukk-logo.png" alt="Landsoukk Realtors" width="42" height="42"><span>Landsoukk</span></a>
@@ -125,13 +137,15 @@ src="https://www.facebook.com/tr?id=1459825486336695&ev=PageView&noscript=1"
   // Meta: count WhatsApp / call taps as Contact
   document.addEventListener('click', function(e){
     var a = e.target.closest && e.target.closest('a[href^="https://wa.me"],a[href^="tel:"]');
-    if (a && window.fbq) fbq('track','Contact',{content_name:'Westin Residences', method: a.href.indexOf('tel:')===0 ? 'call' : 'whatsapp'});
+    if (!a) return; var method = a.href.indexOf('tel:')===0 ? 'call' : 'whatsapp';
+    if (window.fbq) fbq('track','Contact',{content_name:'Westin Residences', method: method});
+    (window.dataLayer = window.dataLayer || []).push({event:'contact_click', contact_method: method, project:'Westin Residences'});
   });
 
   // Fire conversion events once per real submission (not on refresh or direct visits)
   if (lead && !lead.tracked && Date.now() - (lead.t || 0) < 10 * 60 * 1000) {
     if (window.fbq) fbq('track', 'Lead', {content_name: 'Westin Residences'});
-    if (window.gtag) gtag('event', 'generate_lead', {item_name: 'Westin Residences'});
+    (window.dataLayer = window.dataLayer || []).push({event: 'generate_lead', project: 'Westin Residences', configuration: lead.config || '', form_source: 'westin-landing'});
     lead.tracked = true;
     try { sessionStorage.setItem('lk_lead', JSON.stringify(lead)) } catch(e){}
   }

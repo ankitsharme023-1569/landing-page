@@ -2,6 +2,13 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-MVSG9X7Z');</script>
+<!-- End Google Tag Manager -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>The Westin Residences, Sector 103 Gurugram | 3 &amp; 4 BHK from ₹6.28 Cr* | Landsoukk Realtors</title>
 <meta name="description" content="The Westin Residences by Whiteland Corporation, managed by Marriott International. 3 & 4 BHK + utility branded residences on Dwarka Expressway, Sector 103 Gurugram. Price list, payment plan, floor plans and site visits with Landsoukk Realtors.">
@@ -238,6 +245,11 @@ src="https://www.facebook.com/tr?id=1459825486336695&ev=PageView&noscript=1"
 <!-- End Meta Pixel Code -->
 </head>
 <body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MVSG9X7Z"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
 
 <header id="hdr">
   <div class="wrap nav">
@@ -579,7 +591,9 @@ var CFG = {
   // Meta: count WhatsApp / call taps as Contact
   document.addEventListener('click', function(e){
     var a = e.target.closest && e.target.closest('a[href^="https://wa.me"],a[href^="tel:"]');
-    if (a && window.fbq) fbq('track','Contact',{content_name:'Westin Residences', method: a.href.indexOf('tel:')===0 ? 'call' : 'whatsapp'});
+    if (!a) return; var method = a.href.indexOf('tel:')===0 ? 'call' : 'whatsapp';
+    if (window.fbq) fbq('track','Contact',{content_name:'Westin Residences', method: method});
+    (window.dataLayer = window.dataLayer || []).push({event:'contact_click', contact_method: method, project:'Westin Residences'});
   });
 
   // reveal
